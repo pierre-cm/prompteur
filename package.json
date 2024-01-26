@@ -13,8 +13,8 @@
   ],
   "type": "module",
   "types": "dist/index.d.ts",
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
+  "main": "dist/bundle.cjs",
+  "module": "dist/bundle.esm",
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf dist",
