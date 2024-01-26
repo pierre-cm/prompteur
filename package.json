@@ -15,6 +15,14 @@
   "types": "dist/index.d.ts",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/bundle.esm.js",
+      "require": "./dist/bundle.cjs.js"
+    },
+    "./dist/index.d.ts": "./dist/index.d.ts",
+    "./dist/*": "./dist/*.js"
+  },
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf dist"
