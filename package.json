@@ -1,0 +1,32 @@
+{
+  "name": "prompteur",
+  "version": "1.0.0",
+  "description": "A sleek library for easily animating text on your HTML pages, bringing dynamic and engaging content to life with minimal effort.",
+  "keywords": [
+    "prompteur",
+    "text animation",
+    "dynamic text",
+    "interactive text",
+    "animated text",
+    "animated terminal",
+    "animated code"
+  ],
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf dist"
+  },
+  "author": "Pierre Caillaud M (https://github.com/pierre-cm)",
+  "license": "MIT",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.9.5",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  }
+}
