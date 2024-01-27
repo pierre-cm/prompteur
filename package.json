@@ -11,6 +11,14 @@
     "animated terminal",
     "animated code"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierre-cm/prompteur.git"
+  },
+  "homepage": "http://pierre-cm.github.io/prompteur",
+  "bugs": {
+    "url": "https://github.com/pierre-cm/prompteur/issues"
+  },
   "type": "module",
   "types": "dist/index.d.ts",
   "main": "dist/bundle.cjs",
