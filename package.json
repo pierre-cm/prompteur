@@ -1,6 +1,6 @@
 {
   "name": "prompteur",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A sleek library for easily animating text on your HTML pages, bringing dynamic and engaging content to life with minimal effort.",
   "keywords": [
     "prompteur",
@@ -33,6 +33,9 @@
     "typescript": "^5.3.3"
   },
   "release-it": {
+    "git":{
+      "pushRepo": "git@github.com:pierre-cm/prompteur.git"
+    },
     "github":{
       "requireBranch": "main",
       "release": "true"
