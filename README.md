@@ -12,8 +12,8 @@ A sleek library for easily animating text on your HTML pages, bringing dynamic a
 
 If you want more info you can:
 
-- See some [Examples](https://pierre-cm.github.io/prompteur/examples).
-- Or even [Try it](https://pierre-cm.github.io/prompteur/try)!
+- See some [Examples](https://pierre-cm.github.io/prompteur-website/examples).
+- Or even [Try it](https://pierre-cm.github.io/prompteur-website/try)!
 
 ## Installation
 
