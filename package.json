@@ -18,7 +18,8 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf dist",
-    "install": "npm run build"
+    "install": "npm run build",
+    "release": "release-it"
   },
   "author": "Pierre Caillaud M (https://github.com/pierre-cm)",
   "license": "MIT",
@@ -26,6 +27,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "release-it": "^17.0.3",
     "rollup": "^4.9.5",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
