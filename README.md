@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="[https://hono.dev](https://pierre-cm.github.io/prompteur-website)">
+  <a href="https://pierre-cm.github.io/prompteur-website">
     <img src="https://pierre-cm.github.io/prompteur-website/prompteur.svg" width="256" height="auto" alt="Prompteur"/>
   </a>
 </div>
