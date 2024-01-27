@@ -34,8 +34,7 @@
   },
   "release-it": {
     "github":{
-      "release": "true",
-      "tokenRef": "GH_TOKEN"
+      "release": "true"
     }
   }
 }
