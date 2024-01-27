@@ -22,13 +22,14 @@ jobs:
         with:
           node-version: "18"
           registry-url: https://registry.npmjs.org
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Setup Git
         run: |
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config user.name "${GITHUB_ACTOR}"
-          git remote rm origin
-          git remote add origin https://pierre-cm:${GITHUB_TOKEN}@github.com/pierre-cm/prompteur.git
-          git symbolic-ref HEAD refs/heads/main
       - name: Install dependencies
         run: npm ci
       - name: Release
