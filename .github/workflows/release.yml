@@ -22,6 +22,8 @@ jobs:
           node-version: "18"
       - name: Install dependencies
         run: npm install
+      - name: Login to NPM
+        run: npm login
       - name: Release
         run: |
           # Get the version bump scope
