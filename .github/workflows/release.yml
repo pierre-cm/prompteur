@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Version bump scope (patch, minor, major)"
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm install
+      - name: Release
+        run: |
+          # Get the version bump scope
+          SCOPE="${{ github.event.inputs.scope }}"
+
+          # Run release-it with the specified scope
+          npm run release -- --increment $SCOPE --ci
