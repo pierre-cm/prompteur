@@ -56,7 +56,7 @@ export const renderers = {
 export class Prompteur {
   elt: Element
   text: string
-  speed: number
+  #speed: number
   currentPrompt: string
   loop: boolean
   render: Direction | Renderer
@@ -67,7 +67,7 @@ export class Prompteur {
   constructor(config: PrompteurConfig) {
     this.elt = config?.elt || null
     this.text = config?.text || ""
-    this.speed = config?.speed || 10
+    this.#speed = config?.speed || 10
     this.loop = config?.loop ?? false
     this.render = config?.render || "default"
     this.currentPrompt = ""
@@ -109,10 +109,6 @@ export class Prompteur {
   }
   #computePrompt() {
     const f = this.#factor
-    const opt = {
-      text: this.text,
-      steps: (this.text.length * 1000) / (this.speed * this.#refreshRate),
-    }
     if (typeof this.render === "string") {
       if (this.render in renderers) {
         this.currentPrompt = renderers[this.render](f, this)
@@ -124,10 +120,18 @@ export class Prompteur {
     }
   }
 
+  get speed() {
+    return this.#speed
+  }
   get state() {
     return this.#state
   }
   get factor() {
     return this.#factor
+  }
+
+  set speed(s: number) {
+    this.#speed = s
+    this.#refreshRate = Math.max(25, 1000 / this.#speed)
   }
 }
