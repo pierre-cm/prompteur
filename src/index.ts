@@ -1,12 +1,12 @@
-type Direction = keyof typeof renderers
-type PrompteurConfig = {
+export type BaseRenderer = keyof typeof renderers
+export type PrompteurConfig = {
   elt: Element
   text: string
   speed?: number
   loop?: boolean
-  render?: Direction | Renderer
+  render?: BaseRenderer | RendererFunction
 }
-type Renderer = (factor: number, p: Prompteur) => string
+export type RendererFunction = (factor: number, p: Prompteur) => string
 
 export const renderers = {
   default: (f: number, p: Prompteur) => {
@@ -59,7 +59,7 @@ export class Prompteur {
   #speed: number
   currentPrompt: string
   loop: boolean
-  render: Direction | Renderer
+  render: BaseRenderer | RendererFunction
   #factor: number
   #state: "stopped" | "running" | "paused"
   #interval?: number | NodeJS.Timer
