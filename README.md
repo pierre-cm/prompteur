@@ -21,16 +21,12 @@ If you want more info you can:
 
 ```bash
 npm i prompteur
-# or
-npm i github:pierre-cm/prompteur
 ```
 
 ### <img src="https://bun.sh/logo.svg" width="24px"> bun
 
 ```bash
 bun add prompteur
-# or
-bun add github:pierre-cm/prompteur
 ```
 
 ## Usage
@@ -154,5 +150,33 @@ prompteur.start()
 setTimeout(() => {
   prompteur.pause()
   console.log(prompteur.state) // paused
+}, 2500)
+```
+
+### Events
+
+You can define event listeners for every Prompteur event. The following events are available:
+
+- `start`: triggered when the animation start
+- `pause`: triggered when the animation is paused
+- `play`: triggered when the animation was paused and start again
+- `stop`: triggered when the animation is stopped
+
+```javascript
+import { Prompteur } from "prompteur"
+
+const prompteur = new Prompteur({
+  elt: document.getElementById("elementId"),
+  text: "Hello Mom!",
+  speed: 2,
+})
+
+prompteur.on("pause", () => console.log("Prompteur has been paused"))
+
+prompteur.start()
+
+setTimeout(() => {
+  prompteur.pause()
+  // Prompteur has been paused
 }, 2500)
 ```

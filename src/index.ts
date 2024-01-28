@@ -1,4 +1,5 @@
 export type BaseRenderer = keyof typeof renderers
+type EnventType = "start" | "stop" | "play" | "pause"
 export type PrompteurConfig = {
   elt: Element
   text: string
@@ -64,6 +65,7 @@ export class Prompteur {
   #state: "stopped" | "running" | "paused"
   #interval?: number | NodeJS.Timer
   #refreshRate: number
+  #events: Record<EnventType, Function[]>
   constructor(config: PrompteurConfig) {
     this.elt = config?.elt || null
     this.text = config?.text || ""
@@ -74,12 +76,19 @@ export class Prompteur {
     this.#state = "stopped"
     this.#factor = 0
     this.#refreshRate = Math.max(25, 1000 / this.speed)
+    this.#events = { start: [], stop: [], play: [], pause: [] }
   }
 
   start() {
-    if (this.#state === "stopped") this.#factor = 0
     clearInterval(this.#interval)
-    this.#state = "running"
+    if (this.#state === "stopped") {
+      this.#factor = 0
+      this.#state = "running"
+      for (let e of this.#events.start) e()
+    } else if (this.#state === "paused") {
+      this.#state = "running"
+      for (let e of this.#events.play) e()
+    }
     this.#interval = setInterval(() => {
       if (this.state !== "running") return
       this.#nextFactor()
@@ -91,10 +100,22 @@ export class Prompteur {
     clearInterval(this.#interval)
     this.#state = "stopped"
     this.currentPrompt = ""
+    for (let e of this.#events.stop) e()
   }
   pause() {
     clearInterval(this.#interval)
     this.#state = "paused"
+    for (let e of this.#events.pause) e()
+  }
+  on(event: EnventType, callback: Function) {
+    this.#events[event].push(callback)
+    return {
+      dispose: () => {
+        this.#events[event] = this.#events[event].filter(
+          (cb) => cb !== callback
+        )
+      },
+    }
   }
   #nextFactor() {
     let step = (this.speed * this.#refreshRate) / (this.text.length * 1000)
