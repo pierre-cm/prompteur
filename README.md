@@ -20,13 +20,19 @@ If you want more info you can:
 ### <img src="https://raw.githubusercontent.com/npm/logos/master/npm%20square/n.svg" width="20px"> npm
 
 ```bash
+# stable
 npm i prompteur
+# nighlty
+npm i github:pierre-cm/prompteur
 ```
 
 ### <img src="https://bun.sh/logo.svg" width="24px"> bun
 
 ```bash
+# stable
 bun add prompteur
+# nighlty
+bun add github:pierre-cm/prompteur
 ```
 
 ## Usage
@@ -96,8 +102,7 @@ const prompteur = new Prompteur({
 You can also define a custom render function. The fucntion takes two argument:
 
 - **f** A factor representing the current animation progress. Its value goes from 0 to 1.
-- **opt.text** The text value defined in your Prompteur instanciation.
-- **opt.steps** How many steps will compose your animation in total. It means, how many time will the render function be called.
+- **p** A reference to the prompteur instance
 
 The render function should return the animated text.
 
@@ -157,10 +162,10 @@ setTimeout(() => {
 
 You can define event listeners for every Prompteur event. The following events are available:
 
-- `start`: triggered when the animation start
-- `pause`: triggered when the animation is paused
-- `play`: triggered when the animation was paused and start again
-- `stop`: triggered when the animation is stopped
+- `start` triggered when the animation start
+- `pause` triggered when the animation is paused
+- `play` triggered when the animation was paused and start again
+- `stop` triggered when the animation is stopped
 
 ```javascript
 import { Prompteur } from "prompteur"
