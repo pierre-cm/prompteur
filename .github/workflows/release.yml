@@ -33,7 +33,6 @@ jobs:
       - name: Install dependencies & build
         run: |
           npm install
-          npm run build
       - name: Release
         run: |
           npm run release -- --increment $RELEASE_SCOPE --ci --no-git.requireCleanWorkingDir
