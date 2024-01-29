@@ -20,19 +20,13 @@ If you want more info you can:
 ### <img src="https://raw.githubusercontent.com/npm/logos/master/npm%20square/n.svg" width="20px"> npm
 
 ```bash
-# stable
 npm i prompteur
-# nighlty
-npm i github:pierre-cm/prompteur
 ```
 
 ### <img src="https://bun.sh/logo.svg" width="24px"> bun
 
 ```bash
-# stable
 bun add prompteur
-# nighlty
-bun add github:pierre-cm/prompteur
 ```
 
 ## Usage
