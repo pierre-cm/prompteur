@@ -26,7 +26,6 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf dist",
-    "postinstall": "npm run build",
     "release": "release-it"
   },
   "author": "Pierre Caillaud M (https://github.com/pierre-cm)",
