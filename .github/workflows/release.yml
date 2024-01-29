@@ -34,4 +34,4 @@ jobs:
         run: npm install
       - name: Release
         run: |
-          npm run release -- --increment $RELEASE_SCOPE --ci
+          npm run release -- --increment $RELEASE_SCOPE --ci --no-git.requireCleanWorkingDir
